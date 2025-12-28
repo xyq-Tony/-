@@ -1,0 +1,60 @@
+Lab2 LL(1) Syntax Parser
+----------------------------------------
+Input Stream: x = 0.5 * (y + 10 + z) * 3; while(x) { x = x + 1; }
+----------------------------------------
+Sequence of Derivations (Syntax Tree Construction):
+
+Program -> Stmts
+Stmts -> Stmt Stmts
+Stmt -> AssignStmt
+AssignStmt -> id = E ;
+E -> T E'
+T -> F T'
+F -> num (0.5)
+T' -> * F T'
+F -> ( E )
+E -> T E'
+T -> F T'
+F -> id (y)
+T' -> epsilon
+E' -> + T E'
+T -> F T'
+F -> num (10)
+T' -> epsilon
+E' -> + T E'
+T -> F T'
+F -> id (z)
+T' -> epsilon
+E' -> epsilon
+T' -> * F T'
+F -> num (3)
+T' -> epsilon
+E' -> epsilon
+Stmts -> Stmt Stmts
+Stmt -> WhileStmt
+WhileStmt -> while ( E ) Stmt
+E -> T E'
+T -> F T'
+F -> id (x)
+T' -> epsilon
+E' -> epsilon
+Stmt -> Block
+Block -> { Stmts }
+Stmts -> Stmt Stmts
+Stmt -> AssignStmt
+AssignStmt -> id = E ;
+E -> T E'
+T -> F T'
+F -> id (x)
+T' -> epsilon
+E' -> + T E'
+T -> F T'
+F -> num (1)
+T' -> epsilon
+E' -> epsilon
+Stmts -> epsilon
+Stmts -> epsilon
+
+----------------------------------------
+Result: SUCCESS. Syntax tree built successfully.
+Output saved to 'output.txt'.

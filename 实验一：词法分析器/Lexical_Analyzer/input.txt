@@ -1,0 +1,6 @@
+read x;
+if 0 < x then
+  fact := 1;
+  { Comment Ignored }
+  repeat fact := fact * x; until x = 0
+end
