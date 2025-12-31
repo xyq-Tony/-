@@ -1,0 +1,22 @@
+Input Stream: x=0.5*(y+10+z)*3;
+Processing...
+
+1     | factor -> NUM
+2     | term -> factor
+3     | factor -> ID
+4     | term -> factor
+5     | exp -> term
+6     | factor -> NUM
+7     | term -> factor
+8     | exp -> exp + term
+9     | factor -> ID
+10    | term -> factor
+11    | exp -> exp + term
+12    | factor -> ( exp )
+13    | term -> term * factor
+14    | factor -> NUM
+15    | term -> term * factor
+16    | exp -> term
+17    | assign_stmt -> ID = exp
+--------------------------------------------------
+Total Reductions: 17
